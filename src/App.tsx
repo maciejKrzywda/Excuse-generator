@@ -1,11 +1,12 @@
 import './App.css'
+import Form from "./Form.tsx";
 
 function App() {
 
   return (
     <>
-        <p>dupa</p>
-    </>
+        <Form/>
+        </>
   )
 }
 

@@ -1,3 +1,8 @@
+const veryCreative = ["Kosmici porwali mi psa", "Meteoryt spadł na mój dom"]
+const Creative = ["Proszę pana pana tam nie było","Podzieliłem przez zero", "Byłem na Ukrainie i walczyłem"]
+const LittleCreative = ["Byłem w innym kraju","Wybuchł mi dom"]
+const Standard = ["Nie chciało mi się"]
+const NotCreative = ["Ojciec kazał mi iść po piwo","Wujek wszedł za głęboko","Ojciec urodził"]
 const Form = () => {
     return(
         <form>
@@ -6,25 +11,25 @@ const Form = () => {
                 <tbody>
                 <tr>
                     <td className={"tableLeft"}> <label> Imię: </label> </td>
-                    <td className={"tableRight"}> <label> <input type={"text"} name={"name"} value={"placeholder"}/> </label> </td>
+                    <td className={"tableRight"}> <label> <input type={"text"} name={"name"} value={"Włodzimierz Jeremiasz 3 Kmiecic"}/> </label> </td>
                 </tr>
 
                 <tr>
                     <td className={"tableLeft"}> <label> Powód wymówki: </label> </td>
                     <td className={"tableRight"}>
                         <label>
-                        <select name={"excuseType"}>
-                            <option value={"late"}>Spóźniłem się</option>
-                            <option value={"noHomework"}>nie dostarczyłem pracy domowej</option>
-                            <option value={"noAnswer"}>brak odpowiedzi na wiadomość</option>
-                        </select>
+                            <select name={"excuseType"}>
+                                <option value={"late"}>Spóźniłem się</option>
+                                <option value={"noHomework"}>nie dostarczyłem pracy domowej</option>
+                                <option value={"noAnswer"}>brak odpowiedzi na wiadomość</option>
+                            </select>
                         </label>
                     </td>
                 </tr>
 
                 <tr>
                     <td className={"tableLeft"}> <label>Poziom wiarygodności: </label> </td>
-                    <td className={"tableRight"}> <label> <input type={"range"} name={"beliveabilityLevel"} /*is that how it's written*/ min={1} max={10} /> </label> </td>
+                    <td className={"tableRight"}> <label> <input type={"range"} name={"beliveabilityLevel"} /*is that how it's written*/ min={1} max={5} value={0} /> </label> </td>
                 </tr>
 
                 <tr>
@@ -39,9 +44,9 @@ const Form = () => {
                             <select name={"CreativityLevel"}>
                                 <option>nie z tego świata</option>
                                 <option>odlotowa</option>
-                                <option>nie przeginaj</option>
                                 <option>lekko kreatywna</option>
-                                <option>sam wymyśl</option>
+                                <option>nie przeginaj</option>
+                                <option>nie kreatywna</option>
                             </select>
                         </label>
                     </td>

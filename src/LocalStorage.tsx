@@ -8,9 +8,6 @@ const LocalStorage: React.FC = () => {
         return savedItems ? JSON.parse(savedItems) : [];
     })
 
-    function handleNewText(e: React.ChangeEvent<HTMLInputElement>) {
-        setNewText(e.currentTarget.value)
-    }
 
     function addNewItem() {
         const updatedList: Array<string> = [...itemList, newText]

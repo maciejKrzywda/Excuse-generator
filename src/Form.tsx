@@ -1,12 +1,5 @@
 import * as React from "react";
-import {useState} from "react";
-const veryCreative = ["Kosmici porwali mi psa", "Meteoryt spadł na mój dom"]
-const Creative = ["Proszę pana pana tam nie było","Podzieliłem przez zero", "Byłem na Ukrainie i walczyłem"]
-const Standard = ["Ojciec zjadł mi pracę"]
-const LittleCreative = ["Byłem w innym kraju"]
-const NotCreative = ["Ojciec kazał mi iść po piwo"]
 const Form = () => {
-    const [formData, setFormData] = useState({name})
     return(
         <form>
             <label>

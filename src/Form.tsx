@@ -13,16 +13,18 @@ interface FormData {
 
 const Form = () => {
 
-    const veryCreative = ["kosmici porwali mi psa", "meteoryt spadł na mój dom","zostałem porwany przez kosmitów"]
-    const creative = ["proszę pana pana tam nie było","podzieliłem przez zero", "coś"]
-    const littleCreative = ["byłem w innym kraju","wybuchł mi dom","byłem poza domem"]
-    const standard = ["nie chciało mi się","zaspałem","zapomniałem"]
-    const notCreative = ["something","something else","something completly different"]
+    const veryCreative = ["kosmici porwali mi psa", "meteoryt spadł na mój dom","zostałem porwany przez kosmitów","kiedy wybierałem się swoim samochodem do szkoły złapałem gumę, a więc badzo miły pan pomógł mi w naprawei opony, kiedy to on nagle porwał mnie i wywiózł na Białoruś"]
+    const creative = ["proszę pana pana tam nie było","podzieliłem przez zero", "spadłem ze schodów", "dzień wcześniej moja mama posprzątała mi w pokoju i całą noc nie mogłem znaleźć moich notatek"]
+    const littleCreative = ["byłem w innym kraju","wybuchł mi dom","byłem poza domem", "moja babcia spadła ze schodów"]
+    const standard = ["nie chciało mi się","zaspałem","zapomniałem", "*milczy*"]
+    const notCreative = ["something","something else","something completly different", ":3"]
 
     const [formData, setFormData] = useState<FormData>({name: "", excuseType: "", beliveabilityLevel: "",date: "",creativityLevel: "",uniqueTextArea: "",importancy: false})
 
     let important = ""
-    let currentExcuse = ""
+    const [currentExcuse, setCurrentExcuse] = useState<string>("");
+
+    // let currentExcuse = ""
 
     if (formData.importancy == false) {
         important = "nie pilną"
@@ -44,19 +46,19 @@ const Form = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const randomNumber = Math.floor(Math.random()*3)
+        const randomNumber = Math.floor(Math.random()*4)
         if (formData.beliveabilityLevel == "1" && formData.creativityLevel == "nie kreatywna") {
-            currentExcuse = `Nazwa osoby proszącej:  ${formData.name}\nPanie Profesorze, niestety  ${formData.excuseType} , ponieważ, ${notCreative[randomNumber]} \npoziom wiarygodności tej wymówki to: ${formData.beliveabilityLevel}\nzdarzenie miało miejsce ( ${formData.date} )\nkreatywność:  ${formData.creativityLevel}\nDodatkowe informacje: ${formData.uniqueTextArea}\nwymówkę oznaczono jako ${important}`;
+            setCurrentExcuse(` Imie osoby proszącej: ${formData.name} \n Wymówka: Panie Profesorze, niestety ${formData.excuseType}, ponieważ, ${notCreative[randomNumber]} \n Dodatkowe informacje: ${formData.uniqueTextArea} \n Zdarzenie miało miejsce: ${formData.date} \n Poziom wiarygodności tej wymówki to: ${formData.beliveabilityLevel}  \n Kreatywność: ${formData.creativityLevel}  \n Wymówkę oznaczono jako: ${important}`) ;
         } else if (formData.beliveabilityLevel == "2" && formData.creativityLevel == "nie przeginaj") {
-            currentExcuse = `Nazwa osoby proszącej:  ${formData.name}\nPanie Profesorze, niestety  ${formData.excuseType} , ponieważ, ${standard[randomNumber]} \npoziom wiarygodności tej wymówki to: ${formData.beliveabilityLevel}\nzdarzenie miało miejsce ( ${formData.date} )\nkreatywność:  ${formData.creativityLevel}\nDodatkowe informacje: ${formData.uniqueTextArea}\nwymówkę oznaczono jako ${important}`;
+            setCurrentExcuse(` Imie osoby proszącej: ${formData.name} \n Wymówka: Panie Profesorze, niestety ${formData.excuseType}, ponieważ, ${standard[randomNumber]} \n Dodatkowe informacje: ${formData.uniqueTextArea} \n Zdarzenie miało miejsce: ${formData.date} \n Poziom wiarygodności tej wymówki to: ${formData.beliveabilityLevel}  \n Kreatywność: ${formData.creativityLevel}  \n Wymówkę oznaczono jako: ${important}`) ;
         } else if (formData.beliveabilityLevel == "3" && formData.creativityLevel == "lekko kreatywna") {
-            currentExcuse = `Nazwa osoby proszącej:  ${formData.name}\nPanie Profesorze, niestety  ${formData.excuseType} , ponieważ, ${littleCreative[randomNumber]} \npoziom wiarygodności tej wymówki to: ${formData.beliveabilityLevel}\nzdarzenie miało miejsce ( ${formData.date} )\nkreatywność:  ${formData.creativityLevel}\nDodatkowe informacje: ${formData.uniqueTextArea}\nwymówkę oznaczono jako ${important}`;
+            setCurrentExcuse(` Imie osoby proszącej: ${formData.name} \n Wymówka: Panie Profesorze, niestety ${formData.excuseType}, ponieważ, ${littleCreative[randomNumber]} \n Dodatkowe informacje: ${formData.uniqueTextArea} \n Zdarzenie miało miejsce: ${formData.date} \n Poziom wiarygodności tej wymówki to: ${formData.beliveabilityLevel}  \n Kreatywność: ${formData.creativityLevel}  \n Wymówkę oznaczono jako: ${important}`) ;
         } else if (formData.beliveabilityLevel == "4" && formData.creativityLevel == "odlotowa") {
-            currentExcuse = `Nazwa osoby proszącej:  ${formData.name}\nPanie Profesorze, niestety  ${formData.excuseType} , ponieważ, ${creative[randomNumber]} \npoziom wiarygodności tej wymówki to: ${formData.beliveabilityLevel}\nzdarzenie miało miejsce ( ${formData.date} )\nkreatywność:  ${formData.creativityLevel}\nDodatkowe informacje: ${formData.uniqueTextArea}\nwymówkę oznaczono jako ${important}`;
+            setCurrentExcuse(` Imie osoby proszącej: ${formData.name} \n Wymówka: Panie Profesorze, niestety ${formData.excuseType}, ponieważ, ${creative[randomNumber]} \n Dodatkowe informacje: ${formData.uniqueTextArea} \n Zdarzenie miało miejsce: ${formData.date} \n Poziom wiarygodności tej wymówki to: ${formData.beliveabilityLevel}  \n Kreatywność: ${formData.creativityLevel}  \n Wymówkę oznaczono jako: ${important}`) ;
         } else if (formData.beliveabilityLevel == "5" && formData.creativityLevel == "nie z tego świata") {
-            currentExcuse = `Nazwa osoby proszącej:  ${formData.name}\nPanie Profesorze, niestety  ${formData.excuseType} , ponieważ, ${veryCreative[randomNumber]} \npoziom wiarygodności tej wymówki to: ${formData.beliveabilityLevel}\nzdarzenie miało miejsce ( ${formData.date} )\nkreatywność:  ${formData.creativityLevel}\nDodatkowe informacje: ${formData.uniqueTextArea}\nwymówkę oznaczono jako ${important}`;
+            setCurrentExcuse(` Imie osoby proszącej: ${formData.name} \n Wymówka: Panie Profesorze, niestety ${formData.excuseType}, ponieważ, ${veryCreative[randomNumber]} \n Dodatkowe informacje: ${formData.uniqueTextArea} \n Zdarzenie miało miejsce: ${formData.date} \n Poziom wiarygodności tej wymówki to: ${formData.beliveabilityLevel}  \n Kreatywność: ${formData.creativityLevel}  \n Wymówkę oznaczono jako: ${important}`) ;
         } else {
-            alert("poziom wiarygodności i kreatywności musi być ten sam")
+            alert("Poziom wiarygodności i kreatywności musi być ten sam!")
         }
         console.log(currentExcuse)
 
@@ -64,6 +66,9 @@ const Form = () => {
 
     return(
         <form onSubmit={handleSubmit}>
+
+            <h1>GENERATOR WYMÓWEK</h1>
+
             <table>
 
                 <tbody>
@@ -78,9 +83,9 @@ const Form = () => {
                         <label>
                             <select name={"excuseType"} value={formData.excuseType} onChange={handleChange}>
                                 <option>--Select--</option>
-                                <option value={"nie dostarczyłem pracy domowej"}>nie dostarczyłem pracy domowej</option>
-                                <option value={"spóźniłem się"}>spóźniłem się</option>
-                                <option value={"zaspałem na lekcje"}>zaspałem na lekcje</option>
+                                <option value={"nie dostarczyłem pracy domowej"}>Brak pracy domowej</option>
+                                <option value={"spóźniłem się"}>Spóźnienie</option>
+                                <option value={"zaspałem na lekcje"}>Zaspanie</option>
                             </select>
                         </label>
                     </td>
@@ -88,7 +93,7 @@ const Form = () => {
 
                 <tr>
                     <td className={"tableLeft"}> <label>Poziom wiarygodności: </label> </td>
-                    <td className={"tableRight"}> <label> <input type={"range"} name={"beliveabilityLevel"} /*is that how it's written*/ min={1} max={5} value={formData?.beliveabilityLevel} onChange={handleChange}/> </label> </td>
+                    <td className={"tableRight"}> <label> <input type={"range"} name={"beliveabilityLevel"} id={"slider"}/*is that how it's written*/ min={1} max={5} value={formData?.beliveabilityLevel} onChange={handleChange}/> </label> </td>
                 </tr>
 
                 <tr>
@@ -119,15 +124,21 @@ const Form = () => {
 
                 <tr>
                     <td className={"tableLeft"}> <label> Pilność: </label> </td>
-                    <td className={"tableRight"}> <label> <input type={"checkbox"} name={"importancy"} /*is that how it's written 2: electric boogaloo*/ checked={formData.importancy} onChange={handleChange}/> </label> </td>
+                    <td className={"tableRight"}> <label id={"container"}> <input id={"checkBox"} type={"checkbox"} name={"importancy"} /*is that how it's written 2: electric boogaloo*/ checked={formData.importancy} onChange={handleChange}/> </label> </td>
                 </tr>
                 <tr>
-                    <td className={"tableLeft"}><button type={"submit"}>Stwórz</button></td>
-                    <td className={"tableRight"}>{currentExcuse && <h3>{currentExcuse}</h3>}</td>
+                    <td className={"tableLeft"} colSpan={2}><button className={"buttonSubmit"} type={"submit"}>Stwórz</button><button type={"reset"}>Reset</button></td>
                 </tr>
                 </tbody>
             </table>
+            <h2>Wymówka:</h2>
+            <div id={"table2electricBoogaloo"} style={{ whiteSpace: "pre-line" }}>
+
+                {currentExcuse}
+            </div>
         </form>
+
+
     )
 }
 export default Form

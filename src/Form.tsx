@@ -10,8 +10,11 @@ interface FormData {
     uniqueTextArea: string
     importancy: boolean
 }
+interface FormProps {
+    setCurrentExcuse: React.Dispatch<React.SetStateAction<string>>;
+}
 
-const Form = () => {
+const Form: React.FC<FormProps> = ({ setCurrentExcuse }) => {
 
     const veryCreative = ["kosmici porwali mi psa", "meteoryt spadł na mój dom","zostałem porwany przez kosmitów","kiedy wybierałem się swoim samochodem do szkoły złapałem gumę, a więc badzo miły pan pomógł mi w naprawei opony, kiedy to on nagle porwał mnie i wywiózł na Białoruś"]
     const creative = ["proszę pana pana tam nie było","podzieliłem przez zero", "spadłem ze schodów", "dzień wcześniej moja mama posprzątała mi w pokoju i całą noc nie mogłem znaleźć moich notatek"]
@@ -22,7 +25,7 @@ const Form = () => {
     const [formData, setFormData] = useState<FormData>({name: "", excuseType: "", beliveabilityLevel: "",date: "",creativityLevel: "",uniqueTextArea: "",importancy: false})
 
     let important = ""
-    const [currentExcuse, setCurrentExcuse] = useState<string>("");
+    // const [currentExcuse, setCurrentExcuse] = useState<string>("");
 
     // let currentExcuse = ""
 
@@ -60,7 +63,6 @@ const Form = () => {
         } else {
             alert("Poziom wiarygodności i kreatywności musi być ten sam!")
         }
-        console.log(currentExcuse)
 
     };
 
@@ -131,11 +133,6 @@ const Form = () => {
                 </tr>
                 </tbody>
             </table>
-            <h2>Wymówka:</h2>
-            <div id={"table2electricBoogaloo"} style={{ whiteSpace: "pre-line" }}>
-
-                {currentExcuse}
-            </div>
         </form>
 
 

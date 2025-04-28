@@ -59,12 +59,14 @@ table, #table2electricBoogaloo {
 }
 
 #table2electricBoogaloo {
+  margin: auto;
   width: 80%;
   font-size: 125%;
   text-align: center;
   padding: 10px;
   color: white;
 }
+
 
 #uniqueTextArea{
   resize: none;

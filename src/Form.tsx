@@ -25,9 +25,6 @@ const Form: React.FC<FormProps> = ({ setCurrentExcuse }) => {
     const [formData, setFormData] = useState<FormData>({name: "", excuseType: "", beliveabilityLevel: "",date: "",creativityLevel: "",uniqueTextArea: "",importancy: false})
 
     let important = ""
-    // const [currentExcuse, setCurrentExcuse] = useState<string>("");
-
-    // let currentExcuse = ""
 
     if (formData.importancy == false) {
         important = "nie pilną"

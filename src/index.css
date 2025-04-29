@@ -56,10 +56,12 @@ table, #table2electricBoogaloo {
   margin: 5px;
   border: none;
   background: darkolivegreen;
+  box-shadow: black 2px 2px 5px;
 }
 
 #table2electricBoogaloo {
   margin: auto;
+  margin-top: 10px;
   width: 80%;
   font-size: 125%;
   text-align: center;
